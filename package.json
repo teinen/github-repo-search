@@ -1,0 +1,29 @@
+{
+  "name": "github-repo-search",
+  "version": "1.0.0",
+  "description": "Github Repository Search App",
+  "main": "main.js",
+  "repository": "git@github.com:teinen/github-repo-search.git",
+  "author": "諦念 <teinen.github@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --hot --inline"
+  },
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "postcss-loader": "^2.1.5",
+    "vue-loader": "^15.2.4",
+    "vue-style-loader": "^4.1.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
