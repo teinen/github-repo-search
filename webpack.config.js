@@ -7,6 +7,7 @@ module.exports = [
     entry: './src/main.js',
     output: {
       filename: 'bundle.js',
+      path: path.join(__dirname, 'dist/'),
     },
     module: {
       rules: [
@@ -45,13 +46,14 @@ module.exports = [
       ]
     },
     resolve: {
-      extensions: ['.js', '.vue']
+      extensions: ['.js', '.vue'],
+      '@': path.resolve(__dirname, 'src/')
     },
     performance: {
-      maxEntrypointSize: 1000000,
-      maxAssetSize: 1000000
+      hints: false
     },
     devServer: {
+      contentBase: path.join(__dirname, 'dist/'),
       host: '0.0.0.0',
       port: 8080
     },
