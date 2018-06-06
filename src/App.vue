@@ -27,7 +27,7 @@ export default {
     'result': Result
   },
   async mounted () {
-    const res = await axios.get(`${SEARCH}?q=ruby&sort=stars`)
+    const res = await axios.get(`${SEARCH}?q=vue+in:name&sort=stars`)
 
     if (res.status !== 200) {
       console.log("error occurred.")
