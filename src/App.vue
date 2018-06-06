@@ -14,22 +14,29 @@
 <script>
 import Result from './components/Result'
 
+const axios = require('axios')
+const SEARCH = 'https://api.github.com/users/teinen/repos'
+
 export default {
   data () {
     return {
-      results: [
-        {
-          id: 1,
-          url: 'https://github.com/vuejs/vue',
-          repo_name: 'vuejs/vue',
-          stars: 96725,
-          description: 'testtest'
-        }
-      ]
+      results: []
     }
   },
   components: {
     'result': Result
+  },
+  async mounted () {
+    const res = await axios.get(SEARCH)
+
+    if (res.status !== 200) {
+      console.log("error occurred.")
+      process.exit()
+    }
+
+    const json = res.json()
+    const results = json && json.items || []
+    this.results = results
   }
 }
 </script>

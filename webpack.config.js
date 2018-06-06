@@ -47,7 +47,9 @@ module.exports = [
     },
     resolve: {
       extensions: ['.js', '.vue'],
-      '@': path.resolve(__dirname, 'src/')
+      alias: {
+        '@': path.resolve(__dirname, 'src/')
+      }
     },
     performance: {
       hints: false
