@@ -1,10 +1,10 @@
 <template>
   <div class="content">
     <div>
-      <a :href=result.url target="_blank">
-        {{ result.repo_name }}
+      <a :href=result.html_url target="_blank">
+        {{ result.full_name }}
       </a>
-      🌟<strong>{{ result.stars }}</strong>
+      🌟<strong>{{ result.stargazers_count }}</strong>
     </div>
     <p>{{ result.description }}</p>
   </div>

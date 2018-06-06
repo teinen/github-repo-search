@@ -29,14 +29,15 @@ export default {
   async mounted () {
     const res = await axios.get(SEARCH)
 
-    if (res.status !== 200) {
-      console.log("error occurred.")
-      process.exit()
-    }
+    // if (res.status !== 200) {
+    //   console.log("error occurred.")
+    //   process.exit()
+    // }
 
-    const json = res.json()
-    const results = json && json.items || []
-    this.results = results
+    console.log(res)
+
+    const data = await res.data
+    this.results = data
   }
 }
 </script>
