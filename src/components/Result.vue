@@ -6,9 +6,10 @@
       </a>
       🌟<strong>{{ result.stargazers_count }}</strong>
       🍴<strong>{{ result.forks_count }}</strong>
+      👀<strong>{{ result.watchers_count }}</strong>
     </div>
     <p>{{ result.description }}</p>
-    <p>Latest commit: {{ result.pushed_at }}</p>
+    <p>Clone url: {{ result.clone_url }}</p>
   </div>
 </template>
 
@@ -23,6 +24,7 @@ export default {
 <style lang="scss">
   a {
     font-weight: bold;
+    font-size: 1.5rem;
   }
 
   .list-item {
@@ -30,5 +32,9 @@ export default {
     margin: 10px;
     background: white;
     box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+
+    p {
+      margin: 3px 0px;
+    }
   }
 </style>

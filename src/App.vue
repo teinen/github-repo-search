@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Github Repository Search</h1>
     <div class="search">
-      <p><input class="form-control" type="text" v-model="search"></p>
+      <input class="form-control" type="text" placeholder="Search" v-model="search">
       <p>{{ progress }}</p>
     </div>
     <div class="list">
@@ -46,7 +46,7 @@ export default {
   methods: {
     getResults () {
       if (this.search === '') {
-        this.progress = 'Please enter search words:)'
+        this.progress = 'Please enter search words :)'
         return
       }
 
@@ -76,9 +76,21 @@ export default {
 
   .search {
     text-align: center;
+
     input {
-      width: 60%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 8px;
     }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .form-control {
+    width: 350px;
   }
 
   .list {
