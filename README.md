@@ -1,5 +1,5 @@
 # Overview
-This app can search Github repository.
+This app can search Github repository.  
 https://teinen.github.io/github-repo-search/index.html
 
 # Search
