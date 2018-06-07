@@ -1,6 +1,10 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Github Repository Search</h1>
+    <div class="search">
+      <p><input class="form-control" type="text" v-model="search"></p>
+      <p>{{ progress }}</p>
+    </div>
     <div class="list">
       <result
         v-for="result in results"
@@ -15,27 +19,48 @@
 import Result from './components/Result'
 
 const axios = require('axios')
+const lodash = require('lodash')
+
 const SEARCH = 'https://api.github.com/search/repositories'
 
 export default {
   data () {
     return {
+      search: '',
+      progress: 'Not searching.',
       results: []
     }
   },
   components: {
     'result': Result
   },
-  async mounted () {
-    const res = await axios.get(`${SEARCH}?q=vue+in:name&sort=stars`)
-
-    if (res.status !== 200) {
-      console.log("error occurred.")
-      process.exit()
+  watch: {
+    search () {
+      this.progress = 'Waiting for you stop typing...'
+      this.debouncedGetResults()
     }
+  },
+  created () {
+    this.debouncedGetResults = _.debounce(this.getResults, 500)
+  },
+  methods: {
+    getResults () {
+      if (this.search === '') {
+        this.progress = 'Please enter search words:)'
+        return
+      }
 
-    const data = await res.data
-    this.results = data.items
+      this.progress = 'Searching...'
+
+      axios.get(`${SEARCH}?q=${this.search}+in:name&sort=stars`)
+        .then((res) => {
+          this.results = res.data.items
+          this.progress = 'Search finished!'
+        })
+        .catch((err) => {
+          this.progress = 'Error occurred: ' + err
+        })
+    }
   }
 }
 </script>
@@ -47,6 +72,13 @@ export default {
 
   h1 {
     text-align: center;
+  }
+
+  .search {
+    text-align: center;
+    input {
+      width: 60%;
+    }
   }
 
   .list {
