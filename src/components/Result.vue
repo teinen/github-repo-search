@@ -1,7 +1,7 @@
 <template>
   <div class="list-item">
     <div>
-      <a :href=result.html_url target="_blank">
+      <a :href=result.html_url target="_blank" id="name">
         {{ result.full_name }}
       </a>
       🌟<strong>{{ result.stargazers_count }}</strong>
@@ -9,7 +9,12 @@
       👀<strong>{{ result.watchers_count }}</strong>
     </div>
     <p>{{ result.description }}</p>
-    <p>Clone url: {{ result.clone_url }}</p>
+    <p>
+      <a :href=result.homepage target="_blank">
+        {{ result.homepage }}
+      </a>
+    </p>
+    <p></p>
   </div>
 </template>
 
@@ -23,8 +28,10 @@ export default {
 
 <style lang="scss">
   a {
-    font-weight: bold;
-    font-size: 1.5rem;
+    &#name {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
   }
 
   .list-item {
