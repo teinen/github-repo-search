@@ -3,7 +3,7 @@
     <h1>Github Repository Search</h1>
     <div class="search">
       <input class="form-control" type="text" placeholder="Search" v-model="search">
-      <p>{{ progress }}</p>
+      <p>{{ condition }}</p>
     </div>
     <div class="list">
       <result
@@ -27,7 +27,7 @@ export default {
   data () {
     return {
       search: '',
-      progress: 'Not searching.',
+      condition: 'Not searching.',
       results: []
     }
   },
@@ -36,7 +36,7 @@ export default {
   },
   watch: {
     search () {
-      this.progress = 'Waiting for you stop typing...'
+      this.condition = 'Waiting for you stop typing...'
       this.debouncedGetResults()
     }
   },
@@ -46,19 +46,19 @@ export default {
   methods: {
     getResults () {
       if (this.search === '') {
-        this.progress = 'Please enter search words :)'
+        this.condition = 'Please enter search words :)'
         return
       }
 
-      this.progress = 'Searching...'
+      this.condition = 'Searching...'
 
       axios.get(`${SEARCH}?q=${this.search}+in:name&sort=stars`)
         .then((res) => {
           this.results = res.data.items
-          this.progress = 'Search finished!'
+          this.condition = 'Search finished!'
         })
         .catch((err) => {
-          this.progress = 'Error occurred: ' + err
+          this.condition = 'Error occurred: ' + err
         })
     }
   }
@@ -91,9 +91,5 @@ export default {
 
   .form-control {
     width: 350px;
-  }
-
-  .list {
-
   }
 </style>
