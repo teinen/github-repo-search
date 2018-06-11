@@ -1,5 +1,15 @@
 {
-  "presets": ["env"],
-  "plugins": ["transform-runtime"],
-  "ignore": ["node_modules"]
+  "presets": [
+    ["env", { "modules": false }]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["env", { "targets": { "node": 8 }}]
+      ]
+    }
+  },
+  "ignore": [
+    "node_modules"
+  ]
 }
