@@ -9,7 +9,9 @@
   "private": false,
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot --inline"
+    "build:prod": "webpack --mode=production",
+    "start": "webpack-dev-server --hot --inline",
+    "start:prod": "webpack-dev-server --hot --mode=production"
   },
   "dependencies": {
     "vue": "^2.5.16"
