@@ -16,10 +16,9 @@
 </template>
 
 <script>
-import Result from './components/Result'
-
-const axios = require('axios')
-const lodash = require('lodash')
+import axios from 'axios'
+import lodash from 'lodash'
+import Result from '@/components/Result'
 
 const SEARCH = 'https://api.github.com/search/repositories'
 
