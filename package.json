@@ -10,8 +10,9 @@
   "scripts": {
     "build": "webpack",
     "build:prod": "webpack --mode=production",
-    "start": "webpack-dev-server --hot --inline",
-    "start:prod": "webpack-dev-server --hot --mode=production"
+    "start": "webpack-dev-server --hot",
+    "start:prod": "webpack-dev-server --hot --mode=production",
+    "test": "jest --watch"
   },
   "dependencies": {
     "vue": "^2.5.16"
@@ -25,6 +26,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-runtime": "^6.26.0",
     "css-loader": "^0.28.11",
+    "jest": "^23.1.0",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",
