@@ -1,6 +1,6 @@
 # Overview
 This app can search Github repository.  
-https://teinen.github.io/github-repo-search/index.html
+https://teinen.github.io/github-repo-search/
 
 # Search
 * API: https://developer.github.com/v3/search/#search-repositories
